@@ -1,0 +1,80 @@
+ :root {
+  --pad: clamp(22px, 5vw, 72px);
+  --radius: 28px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "DM Sans", Arial, sans-serif;
+  background: #111;
+  color: #fff;
+}
+a { color: inherit; text-decoration: none; }
+.shell { width: min(1440px, 100%); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); }
+.hero { min-height: 76svh; background: #111; display: flex; align-items: stretch; }
+.hero-inner { padding-top: 34px; padding-bottom: 50px; display: flex; flex-direction: column; justify-content: space-between; }
+.topline, .hero-foot { display: flex; justify-content: space-between; gap: 30px; font-size: 11px; letter-spacing: .18em; color: #8c8c8c; }
+.hero-copy { padding: 90px 0 80px; }
+.eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .28em; margin: 0 0 24px; text-transform: uppercase; opacity: .72; }
+.hero h1, .artist h2, .contact h2 { margin: 0; font-size: clamp(64px, 10vw, 148px); letter-spacing: -.065em; line-height: .86; font-weight: 600; }
+.hero-foot { border-top: 1px solid #2d2d2d; padding-top: 24px; letter-spacing: 0; }
+.hero-foot p { margin: 0; max-width: 650px; line-height: 1.6; }
+.hero-foot a { color: #fff; }
+.artist { min-height: 100svh; display: flex; align-items: center; padding: 70px 0; }
+.artist-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, .86fr); gap: clamp(42px, 7vw, 110px); align-items: center; }
+.artist-grid.reverse .artist-copy { order: 2; }
+.artist-grid.reverse .photo-wrap { order: 1; }
+.artist-copy { max-width: 720px; }
+.artist h2 { font-size: clamp(58px, 7.3vw, 112px); margin-bottom: 42px; }
+.bio { font-size: clamp(18px, 1.45vw, 23px); line-height: 1.6; margin: 0 0 28px; }
+.note { font-size: 14px; line-height: 1.7; opacity: .72; border-top: 1px solid currentColor; padding-top: 24px; margin: 0 0 34px; }
+.photo-wrap { margin: 0; aspect-ratio: 4 / 5; border-radius: var(--radius); overflow: hidden; background: #222; }
+.photo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.artist-biera .photo-wrap img { object-position: center 42%; }
+.artist-michelle .photo-wrap img { object-position: center 42%; }
+.artist-derian .photo-wrap img { object-position: center 35%; }
+.artist-edgar .photo-wrap img { object-position: center 35%; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.button { border: 1px solid currentColor; border-radius: 999px; padding: 13px 19px; font-size: 13px; font-weight: 600; transition: transform .2s ease, opacity .2s ease, background .2s ease; }
+.button:hover { transform: translateY(-2px); opacity: .82; }
+.artist-biera { background: #15382c; color: #f5f2e9; }
+.artist-biera .primary { background: #f5f2e9; color: #15382c; border-color: #f5f2e9; }
+.artist-michelle { background: #775742; color: #fff8ef; }
+.artist-michelle .primary { background: #fff8ef; color: #5d4333; border-color: #fff8ef; }
+.artist-derian { background: #f4f4f0; color: #121212; }
+.artist-derian .primary { background: #121212; color: #fff; border-color: #121212; }
+.artist-edgar { background: #2a1a11; color: #fff1df; }
+.artist-edgar .eyebrow { color: #e5a04b; opacity: 1; }
+.artist-edgar .note { border-color: #a96a2d; }
+.artist-edgar .primary { background: #e5a04b; color: #21140b; border-color: #e5a04b; }
+.contact { background: #111; padding: 100px 0; }
+.contact-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 70px; align-items: end; }
+.contact h2 { font-size: clamp(58px, 8vw, 118px); }
+.contact-data { padding-bottom: 7px; }
+.contact-data .muted { color: #777; margin: 0 0 10px; }
+.contact-data h3 { font-size: 30px; margin: 0 0 18px; }
+.contact-data > a { font-size: clamp(20px, 2.2vw, 32px); font-weight: 500; }
+.brand { margin-top: 54px; font-size: 11px; letter-spacing: .24em; color: #666; }
+@media (max-width: 850px) {
+  .topline { align-items: flex-start; }
+  .hero-foot { flex-direction: column; }
+  .artist { min-height: auto; }
+  .artist-grid, .contact-grid { grid-template-columns: 1fr; }
+  .artist-grid.reverse .artist-copy, .artist-grid.reverse .photo-wrap { order: initial; }
+  .photo-wrap { aspect-ratio: 3 / 4; }
+  .artist-copy { order: 2; }
+  .photo-wrap { order: 1; }
+  .artist h2 { margin-bottom: 30px; }
+  .contact-grid { gap: 55px; }
+}
+@media (max-width: 520px) {
+  .hero { min-height: 70svh; }
+  .hero-copy { padding: 70px 0 50px; }
+  .topline span:last-child { display: none; }
+  .artist { padding: 48px 0; }
+  .artist-grid { gap: 34px; }
+  .actions { display: grid; grid-template-columns: 1fr; }
+  .button { text-align: center; }
+  .contact { padding: 70px 0; }
+}
